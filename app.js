@@ -13,7 +13,7 @@ const adapter = new BotFrameworkAdapter({
     appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 
-const storage = new FileStorage("D:\Temp");
+const storage = new FileStorage("D:\\Temp");
 const convoState = new ConversationState(storage);
 const userState = new UserState(storage);
 adapter.use(new BotStateSet(convoState, userState));
