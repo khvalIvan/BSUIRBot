@@ -1,5 +1,3 @@
-const { CardFactory } = require('botbuilder');
-
 function getAdaptiveCardContent(adaptiveCard, schedules, type, currentWeekNumber) {
     adaptiveCard.content.body.push(getHeaderColumnSet({text: type, currentWeekNumber: currentWeekNumber}));
     for (const day of schedules) {
@@ -73,6 +71,11 @@ function getDayScheduleColumnSet(item) {
     columnSet.columns.push(
         getAdaptiveCardColumn({text: `${item.subject} (${item.lessonType})`})
     )
+    if (item.numSubgroup != 0) {
+        columnSet.columns.push(
+            getAdaptiveCardColumn({text: `${item.numSubgroup} п.`})
+        )
+    }
     columnSet.columns.push(
         getAdaptiveCardColumn({text: item.note, width: 'stretch'})
     )

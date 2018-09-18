@@ -1,14 +1,24 @@
 {
     "name": "schedule",
-    "secretKey": "",
+    "description": "",
     "services": [
         {
             "type": "endpoint",
-            "name": "schedule",
-            "id": "http://localhost:3978/api/messages",
             "appId": "",
             "appPassword": "",
-            "endpoint": "http://localhost:3978/api/messages"
+            "endpoint": "http://localhost:3978/api/messages",
+            "id": "http://localhost:3978/api/messages",
+            "name": "schedule"
+        },
+        {
+            "type": "endpoint",
+            "endpoint": "https://bsuirbot.azurewebsites.net/api/messages",
+            "name": "test",
+            "id": "100"
         }
-    ]
+    ],
+    "secretKey": "",
+    "version": "2.0",
+    "path": "D:\\test\\test\\test\\schedulebot\\schedule.bot",
+    "overrides": null
 }

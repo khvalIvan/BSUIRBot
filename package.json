@@ -13,6 +13,7 @@
     "botbuilder-dialogs": "^4.0.0-preview1.2",
     "querystring": "^0.2.0",
     "request": "^2.88.0",
-    "restify": "^7.2.1"
+    "restify": "^7.2.1",
+    "minimist": "^1.2.0"
   }
 }

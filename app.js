@@ -1,4 +1,4 @@
-const { BotFrameworkAdapter, BotStateSet, MemoryStorage, ConversationState, UserState } = require('botbuilder');
+const { BotFrameworkAdapter, BotStateSet, MemoryStorage, ConversationState, UserState, FileStorage } = require('botbuilder');
 const restify = require('restify');
 
 const createBotLogic = require('./src/bot');
@@ -13,12 +13,12 @@ const adapter = new BotFrameworkAdapter({
     appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 
-const storage = new MemoryStorage();
+const storage = new FileStorage("D:\Temp");
 const convoState = new ConversationState(storage);
 const userState = new UserState(storage);
 adapter.use(new BotStateSet(convoState, userState));
 
-const botLogic = createBotLogic();
+const botLogic = createBotLogic(convoState);
 
 server.post('/api/messages', (req, res) => {
     adapter.processActivity(req, res, botLogic);
